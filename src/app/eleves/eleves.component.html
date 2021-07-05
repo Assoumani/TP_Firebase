@@ -1,0 +1,48 @@
+<div style="padding: 5%;">
+  <button mat-raised-button color="primary" (click)="ajouter()">ajouter</button>
+  <table mat-table [dataSource]="eleves | async" class="mat-elevation-z8" style="width: 100%; margin-top: 10px">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="firstname">
+      <th mat-header-cell *matHeaderCellDef> Prénom</th>
+      <td mat-cell *matCellDef="let eleve"> {{eleve.firstname}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> Nom</th>
+      <td mat-cell *matCellDef="let eleve"> {{eleve.lastname}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="birthDate">
+      <th mat-header-cell *matHeaderCellDef> Date de naissance</th>
+      <td mat-cell *matCellDef="let eleve"> {{eleve.birthDate}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Actions</th>
+      <td mat-cell *matCellDef="let eleve">
+        <button mat-icon-button color="primary"
+                (click)="modifier(eleve)"
+                aria-label="Example icon button with a home icon">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn"
+                (click)="supprimer(eleve)"
+                aria-label="Example icon button with a home icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['firstname', 'lastname', 'birthDate', 'action']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['firstname', 'lastname', 'birthDate', 'action'];"></tr>
+  </table>
+</div>
+
+

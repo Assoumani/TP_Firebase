@@ -1,0 +1,30 @@
+<form [formGroup]="formulaire" (ngSubmit)="valider()">
+  <!-- Titre dialog -->
+  <h2 mat-dialog-title>Formulaire élève</h2>
+  <!-- Corps dialog -->
+  <mat-dialog-content>
+    <mat-form-field  appearance="outline" style="width: 100%;">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Nom" formControlName="lastname">
+    </mat-form-field>
+    <br>
+    <mat-form-field  appearance="outline" style="width: 100%;">
+      <mat-label>Prénom</mat-label>
+      <input matInput placeholder="Prénom" formControlName="firstname">
+    </mat-form-field>
+    <br>
+    <mat-form-field  appearance="outline" style="width: 100%;">
+      <mat-label>Date naissance</mat-label>
+      <input matInput type="date" placeholder="Date de naissance" formControlName="birthDate">
+    </mat-form-field>
+  </mat-dialog-content>
+  <!-- Actions dialog -->
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Annuler</button>
+    <button mat-raised-button color="primary" type="submit" [mat-dialog-close]="true">Valider</button>
+  </mat-dialog-actions>
+</form>
+
+
+
+

@@ -6,12 +6,21 @@ export const environment = {
   production: false,
 
   firebaseConfig: {
-    apiKey: "AIzaSyD6auG2sTGF88QVwgjNqNQzWXhCLLqJ5zU",
-    authDomain: "classeiw.firebaseapp.com",
-    projectId: "classeiw",
-    storageBucket: "classeiw.appspot.com",
-    messagingSenderId: "1093970021840",
-    appId: "1:1093970021840:web:66ca9620f407e968e6bdd5"
+    apiKey: "AIzaSyCDxl1kS73a7e_Wm5DUSJPS_Z7GvgJNTnw",
+    authDomain: "pwa-cours-a0c71.firebaseapp.com",
+    projectId: "pwa-cours-a0c71",
+    storageBucket: "pwa-cours-a0c71.appspot.com",
+    messagingSenderId: "150941534283",
+    appId: "1:150941534283:web:ed3f74bcbf8b6b348c25ce"
+  },
+
+  fireBaseMessage: {
+    'auth/user-not-found': 'Utilisateur non trouvé',
+    'auth/invalid-email': 'L\'email est mal formatté!',
+    'auth/wrong-password': 'Email et ou mot de passe incorrect',
+    'auth/argument-error': 'Veuillez saisir un email et un mot de passe correct',
+    'auth/email-already-in-use': 'L\'email existe déjà!',
+    'auth/weak-password': 'Le mot de passe doit contenir au moins 6 caractères!'
   }
 };
 

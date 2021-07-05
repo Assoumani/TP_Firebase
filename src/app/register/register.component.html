@@ -1,8 +1,8 @@
 <div class="padding">
-  <form [formGroup]="form" (submit)="connexion()">
+  <form [formGroup]="form" (submit)="register()">
     <mat-card>
       <mat-card-header>
-        <mat-card-title>Connexion</mat-card-title>
+        <mat-card-title>Inscription</mat-card-title>
       </mat-card-header>
       <mat-card-content class="mt-2">
         <p>
@@ -21,10 +21,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions align="end">
-        <button mat-button color="primary" type="button" (click)="passwordForgotten()">
-          Mot de passe oublié
-        </button>
-        <button mat-raised-button color="primary" type="submit">Connexion</button>
+        <button mat-raised-button color="primary" type="submit">Enregister</button>
       </mat-card-actions>
     </mat-card>
   </form>

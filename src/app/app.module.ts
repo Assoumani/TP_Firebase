@@ -22,11 +22,22 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { BaseComponent } from './base/base.component';
+import { RegisterComponent } from './register/register.component';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { ElevesComponent } from './eleves/eleves.component';
+import {CommonModule} from '@angular/common';
+import {MatTableModule} from '@angular/material/table';
+import { FormulaireComponent } from './eleves/formulaire/formulaire.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
 const routes: Routes = [
   { path: 'test', component: TestComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'eleves', component: ElevesComponent },
   { path: 'connexion', component: ConnexionComponent }
 ];
 
@@ -34,9 +45,14 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     TestComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    BaseComponent,
+    RegisterComponent,
+    ElevesComponent,
+    FormulaireComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
 
@@ -49,11 +65,21 @@ const routes: Routes = [
     MatIconModule,
     MatSnackBarModule,
     MatCardModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    MatTableModule,
+    MatDialogModule,
     MatDividerModule,
 
     RouterModule.forRoot(routes),
 
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+      ServiceWorkerModule.register('ngsw-worker.js', {
+        enabled: environment.production,
+        // Register the ServiceWorker as soon as the app is stable
+        // or after 30 seconds (whichever comes first).
+        registrationStrategy: 'registerWhenStable:30000'
+      }),
   ],
   providers: [],
   exports: [RouterModule],
